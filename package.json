@@ -1,0 +1,20 @@
+{
+  "name": "dlna",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node out/app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/node": "^13.9.1",
+    "request": "^2.88.2",
+    "xml2js": "^0.4.23"
+  },
+  "devDependencies": {
+    "@types/request": "^2.48.4",
+    "@types/xml2js": "^0.4.5"
+  }
+}
