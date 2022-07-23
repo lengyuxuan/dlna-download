@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root configId="26863" xmlns="urn:schemas-upnp-org:device-1-0" xmlns:dlna="urn:schemas-dlna-org:device-1-0">
+  <specVersion>
+    <major>1</major>
+    <minor>1</minor>
+  </specVersion>
+  <device>
+    <deviceType>urn:schemas-upnp-org:device:MediaRenderer:1</deviceType>
+    <friendlyName>远程下载</friendlyName>
+    <manufacturer></manufacturer>
+    <manufacturerURL></manufacturerURL>
+    <modelDescription></modelDescription>
+    <modelName></modelName>
+    <modelNumber>1.0</modelNumber>
+    <modelURL></modelURL>
+    <UDN>uuid:b270dfc237b76e4b45c3b01f66fefcb2</UDN>
+    <dlna:X_DLNADOC xmlns:dlna="urn:schemas-dlna-org:device-1-0">DMR</dlna:X_DLNADOC>
+    <serviceList>
+      <service>
+        <serviceType>urn:schemas-upnp-org:service:AVTransport:1</serviceType>
+        <serviceId>urn:upnp-org:serviceId:AVTransport</serviceId>
+        <SCPDURL>/AVTransport/scpd.xml</SCPDURL>
+        <controlURL>/AVTransport/control.xml</controlURL>
+        <eventSubURL>/AVTransport/event.xml</eventSubURL>
+      </service>
+      <service>
+        <serviceType>urn:schemas-upnp-org:service:ConnectionManager:1</serviceType>
+        <serviceId>urn:upnp-org:serviceId:ConnectionManager</serviceId>
+        <SCPDURL>/ConnectionManager/scpd.xml</SCPDURL>
+        <controlURL>/ConnectionManager/control.xml</controlURL>
+        <eventSubURL>/ConnectionManager/event.xml</eventSubURL>
+      </service>
+      <service>
+        <serviceType>urn:schemas-upnp-org:service:RenderingControl:1</serviceType>
+        <serviceId>urn:upnp-org:serviceId:RenderingControl</serviceId>
+        <SCPDURL>/RenderingControl/scpd.xml</SCPDURL>
+        <controlURL>/RenderingControl/control.xml</controlURL>
+        <eventSubURL>/RenderingControl/event.xml</eventSubURL>
+      </service>
+    </serviceList>
+  </device>
+</root>
