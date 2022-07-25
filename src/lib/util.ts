@@ -16,6 +16,7 @@ export function arrToObj<T>(arr: string[]) {
 }
 
 export function parseM3u8(m3u8: string): { url: string, extinf: number }[] {
+  m3u8 = m3u8.replace(/\r\n/g, '\n');
   const reg = /#EXTINF:(?<extinf>.+?),\n(?<url>.+?)\n/g;
   let result = null;
   const list = [];

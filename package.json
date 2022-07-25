@@ -23,8 +23,8 @@
     "@types/koa": "^2.13.3",
     "@types/koa-router": "^7.4.2",
     "@types/koa-static": "^4.0.2",
-    "@types/node": "^13.9.1",
     "@types/ioredis": "^4.27.4",
-    "@types/xml2js": "^0.4.5"
+    "@types/xml2js": "^0.4.5",
+    "@types/node": "^14.16.0"
   }
 }

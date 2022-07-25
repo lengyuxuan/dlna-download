@@ -5,10 +5,7 @@ import * as path from 'path';
 import { spawn } from 'child_process';
 
 const { stdout } = spawn(path.join(__dirname, '../redis-server.exe'), [
-  '--port',
-  '16379',
-  '--appendonly',
-  'yes',
+  path.join(__dirname, '../redis.conf'),
   '--dir',
   path.join(__dirname, '..'),
 ]);
@@ -26,5 +23,4 @@ stdout.on('data', function (chunk) {
       console.log('listen 7024...');
     });
   }
-  console.log(chunk.toString());
 });
