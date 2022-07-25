@@ -20,41 +20,27 @@ export class Producer<T> {
 
 export class Consumer<T> {
   private id = '0';
-  private cacheList: { id: string; data: T; }[] = [];
-
-  constructor(
+  constructor (
     private redis: Redis,
     private topic: string,
     private group: string,
     private name: string,
-  ) { }
+  ) {}
 
   public async getMessage(count: number) {
-    const list = [];
-    if (this.cacheList.length > 1) {
-      for (let i = 0; i < count && i < this.cacheList.length; i ++) {
-        list.push(this.cacheList.shift());
-      }
-      if (list.length < count) {
-        count -= list.length;
-      } else {
-        return list;
-      }
-    }
     const results = await this.redis.xreadgroup('GROUP', this.group, this.name, 'COUNT', count, 'STREAMS', this.topic, this.id);
     if (results) {
       const [_, messageList] = results[0];
-      for (const message of messageList) {
-        const data = arrToObj(message[1] as unknown as string[]) as T;
-        if (this.id === '0') {
-          list.push({ id: message[0], data });
-        } else {
-          this.cacheList.push({ id: message[0], data });
-        }
+      if (messageList.length < 1) {
+        this.id = '>';
       }
+      return messageList.map((message) => {
+        const data = arrToObj(message[1] as unknown as string[]) as T;
+        return { id: message[0], data };
+      });
     }
     this.id = '>';
-    return list;
+    return [];
   }
 
   public ack(id: string) {
