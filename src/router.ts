@@ -17,7 +17,7 @@ interface File {
   url: string;
   dir: string;
   key: string;
-  progress: boolean;
+  progress: string;
   name?: string;
 }
 
@@ -231,7 +231,7 @@ async function download({ CurrentURI, CurrentURIMetaData }) {
       url,
       dir: path.join(__dirname, `../download`) ,
       key,
-      progress: true,
+      progress: 'true',
       name: title + path.extname(uri.pathname),
     });
   } else {
@@ -247,7 +247,7 @@ async function download({ CurrentURI, CurrentURIMetaData }) {
         item.url = prefix + (/^\//.test(item.url) ? item.url : `/${ item.url }`);
       }
       fileList.push(`file '${ path.join(dir, path.basename(new URL(item.url).pathname)) }'`);
-      downloadProduce.push({ url: item.url, dir, key, progress: false });
+      downloadProduce.push({ url: item.url, dir, key, progress: 'false' });
     }
     await redis.hmset(key, {
       name: title,
