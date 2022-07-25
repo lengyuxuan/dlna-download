@@ -92,7 +92,6 @@ router.get('/restart', async (ctx) => {
 });
 
 router.post('/RenderingControl/control.xml', async (ctx) => {
-  console.log('RenderingControl', ctx.header.soapaction)
   switch (ctx.header.soapaction) {
     case '"urn:schemas-upnp-org:service:RenderingControl:1#GetVolume"':
       ctx.response.body = `
@@ -113,7 +112,6 @@ let CurrentURI = '';
 let CurrentURIMetaData = '';
 
 router.post('/AVTransport/control.xml', async (ctx) => {
-  console.log(ctx.header.soapaction)
   ctx.response.set('Content-Type', 'text/xml; charset="utf-8"')
   switch (ctx.header.soapaction) {
     case '"urn:schemas-upnp-org:service:AVTransport:1#Stop"':
