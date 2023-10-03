@@ -4,14 +4,13 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node out/app.js"
+    "start": "node dist/app.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "got": "^11.8.5",
     "ioredis": "^4.27.7",
-    "ip": "^1.1.8",
     "koa": "^2.13.1",
     "koa-body": "^4.2.0",
     "koa-router": "^10.0.0",
@@ -19,12 +18,11 @@
     "xml2js": "^0.4.23"
   },
   "devDependencies": {
-    "@types/ip": "^1.1.0",
+    "@types/ioredis": "^4.27.4",
     "@types/koa": "^2.13.3",
     "@types/koa-router": "^7.4.2",
     "@types/koa-static": "^4.0.2",
-    "@types/ioredis": "^4.27.4",
-    "@types/xml2js": "^0.4.5",
-    "@types/node": "^14.16.0"
+    "@types/node": "^14.16.0",
+    "@types/xml2js": "^0.4.5"
   }
 }

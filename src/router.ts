@@ -3,8 +3,8 @@ import * as xml2js from 'xml2js';
 import * as path from 'path';
 import * as fs from 'fs';
 import { URL } from 'url';
-import * as ip from 'ip';
 import got from 'got';
+import * as os from 'os';
 
 import Dlna from './lib/dlna';
 import { redis } from './lib/redis';
@@ -32,7 +32,16 @@ redis.defineCommand('incrCurrent', {
     return result;
   `,
 });
-const dlna = new Dlna(ip.address());
+let ip = '';
+const networkInterfacesList = os.networkInterfaces();
+for (const [networkName, networkInterfaces] of Object.entries(networkInterfacesList)) {
+  for (const network of networkInterfaces) {
+    if (network.family === 'IPv4' && !network.internal && !networkName.includes('vEthernet')) {
+      ip = network.address;
+    }
+  }
+}
+const dlna = new Dlna(ip);
 dlna.start();
 dlna.search();
 const pool = new ProcessPool({

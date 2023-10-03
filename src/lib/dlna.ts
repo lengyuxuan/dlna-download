@@ -39,6 +39,7 @@ export default class Dlna {
     });
     await new Promise<void>((resolve) => {
       socket.bind({ address: this.ip }, () => {
+        console.log(`DLNA bind ${this.ip}`)
         resolve();
       });
     });
